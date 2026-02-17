@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Rental System - Presentation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #333;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+      }
+
+      .presentation-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0;
+        height: 100vh;
+      }
+
+      .slide {
+        background: white;
+        border-radius: 0;
+        padding: 60px;
+        margin: 0;
+        box-shadow: none;
+        height: 100vh;
+        display: none;
+        animation: slideIn 0.5s ease-out;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+
+      .slide.active {
+        display: block;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        color: #667eea;
+        font-size: 3em;
+        margin-bottom: 20px;
+        border-bottom: 4px solid #667eea;
+        padding-bottom: 20px;
+      }
+
+      .title-slide h1 {
+        font-size: 4em;
+        border: none;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        color: #764ba2;
+        font-size: 2.2em;
+        margin-bottom: 25px;
+        margin-top: 30px;
+      }
+
+      p,
+      li {
+        line-height: 1.8;
+        font-size: 1.1em;
+        margin-bottom: 12px;
+      }
+
+      ul {
+        margin-left: 30px;
+        margin-bottom: 20px;
+      }
+
+      .navigation {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        gap: 15px;
+        z-index: 1000;
+      }
+
+      .nav-btn {
+        background: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.1em;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        color: #667eea;
+        font-weight: 600;
+      }
+
+      .nav-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        background: #667eea;
+        color: white;
+      }
+
+      .nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .slide-counter {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        font-weight: 600;
+        color: #667eea;
+        z-index: 1000;
+      }
+
+      .title-slide {
+        text-align: center;
+      }
+
+      .title-slide.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .title-slide p {
+        font-size: 1.5em;
+        color: #666;
+        margin-top: 20px;
+      }
+
+      .diagram-container {
+        background: #f8f9fa;
+        border: 2px solid #667eea;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        text-align: center;
+        min-height: 400px;
+        max-height: 500px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .diagram-img {
+        max-width: 100%;
+        max-height: 500px;
+        height: auto;
+        width: auto;
+      }
+
+      object.diagram-img {
+        width: 100%;
+        height: 500px;
+        max-width: 100%;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      table tr:hover {
+        background: #f5f5f5;
+      }
+
+      code {
+        background: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="presentation-container">
+      <!-- Slide 1: Title -->
+      <div class="slide title-slide">
+        <h1>Car Rental Service API</h1>
+        <p>
+          A robust and extensible rental service built with .NET 8 Minimal API,
+          demonstrating best practices in software design and architecture.
+        </p>
+      </div>
+
+      <!-- Slide 2: System Architecture -->
+      <div class="slide">
+        <h1>System Architecture</h1>
+        <p>
+          This diagram shows the overall architecture, including the frontend,
+          backend, and database layers.
+        </p>
+        <div class="diagram-container">
+          <img
+            src="system-architecture.svg"
+            alt="System Architecture Diagram"
+            class="diagram-img"
+          />
+        </div>
+      </div>
+
+      <!-- Slide 3: Data Flow (Car Pickup) -->
+      <div class="slide">
+        <h1>Data Flow (Car Pickup)</h1>
+        <p>
+          This sequence diagram illustrates the process of registering a car
+          pickup and creating a new rental.
+        </p>
+        <div class="diagram-container">
+          <img
+            src="rental-pickup-flow.png"
+            alt="Car Pickup Data Flow Sequence Diagram"
+            class="diagram-img"
+          />
+        </div>
+      </div>
+
+      <!-- Slide 5: Data Flow (Car Return) -->
+      <div class="slide">
+        <h1>Data Flow (Car Return)</h1>
+        <p>
+          This sequence diagram illustrates the process of returning a car and
+          calculating the final price.
+        </p>
+        <div class="diagram-container">
+          <img
+            src="data-flow.svg"
+            alt="Data Flow Sequence Diagram"
+            class="diagram-img"
+          />
+        </div>
+      </div>
+
+      <!-- Slide 4: Database Schema -->
+      <div class="slide">
+        <h1>Database Schema</h1>
+        <p>
+          The core of our system is a single RENTAL table designed to hold all
+          necessary information for a rental lifecycle.
+        </p>
+        <div class="diagram-container">
+          <img
+            src="database-schema.svg"
+            alt="Database Schema ER Diagram"
+            class="diagram-img"
+          />
+        </div>
+      </div>
+
+      <!-- Slide 6: Design Pattern: Strategy -->
+      <div class="slide">
+        <h1>Design Pattern: Strategy</h1>
+        <p>
+          To handle different pricing formulas for each car category, the
+          <strong>Strategy Pattern</strong> was used. This makes the system
+          extensible and easy to maintain.
+        </p>
+        <ul>
+          <li>
+            <strong>Problem</strong>: Different car types have unique pricing
+            rules.
+          </li>
+          <li>
+            <strong>Solution</strong>: Encapsulate each pricing algorithm into
+            its own "strategy" class.
+          </li>
+          <li>
+            <strong>Benefit</strong>: We can add new car categories and pricing
+            rules without changing existing code.
+          </li>
+        </ul>
+        <div class="diagram-container">
+          <img
+            src="strategy-pattern.svg"
+            alt="Strategy Pattern Class Diagram"
+            class="diagram-img"
+          />
+        </div>
+      </div>
+
+      <!-- Slide 7: Design Pattern: Repository -->
+      <div class="slide">
+        <h1>Design Pattern: Repository</h1>
+        <p>
+          The <strong>Repository Pattern</strong> provides an abstraction layer
+          between the business logic and data access, making the code more
+          maintainable and testable.
+        </p>
+        <ul>
+          <li>
+            <strong>Generic Base</strong>:
+            <code>IRepository&lt;T&gt;</code> defines common CRUD operations
+            (GetById, GetAll, Add, Update, Delete)
+          </li>
+          <li>
+            <strong>Specialized Repository</strong>:
+            <code>IRentalRepository</code>
+            extends base with domain-specific queries:
+            <ul>
+              <li>
+                <code>GetByBookingNumberAsync()</code> - Find by unique booking
+                ID
+              </li>
+              <li>
+                <code>GetActiveRentalsAsync()</code> - Filter active rentals
+              </li>
+              <li>
+                <code>GetRentalsByCategoryAsync()</code> - Group by car type
+              </li>
+              <li>
+                <code>GetRentalsByDateRangeAsync()</code> - Date-based queries
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Benefits</strong>:
+            <ul>
+              <li>Separates data access from business logic</li>
+              <li>Easy to unit test with mock repositories</li>
+              <li>Domain-specific queries in dedicated repository</li>
+              <li>
+                Allows switching data sources without changing business code
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Slide 8: Testing Strategy -->
+      <div class="slide">
+        <h1>Testing Strategy</h1>
+        <p>
+          Comprehensive unit testing ensures code quality and reliability using
+          <strong>xUnit</strong> and <strong>Moq</strong>.
+        </p>
+        <ul>
+          <li>
+            <strong>Testing Framework</strong>:
+            <ul>
+              <li><strong>xUnit</strong> - Modern .NET testing framework</li>
+              <li><strong>Moq</strong> - Mocking library for dependencies</li>
+              <li>
+                <strong>InMemory Database</strong> - For repository testing
+              </li>
+              <li><strong>Coverlet</strong> - Code coverage reporting</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Test Coverage</strong>:
+            <ul>
+              <li>
+                ✅ <strong>Pricing Calculators</strong> - All three strategies
+                (SmallCar, Combi, Truck)
+              </li>
+              <li>
+                ✅ <strong>Price Factory</strong> - Strategy selection logic
+              </li>
+              <li>
+                ✅ <strong>Business Rules</strong> - Days calculation,
+                validation rules
+              </li>
+              <li>
+                ✅ <strong>Edge Cases</strong> - Zero values, boundary
+                conditions
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>Benefits</strong>:
+            <ul>
+              <li>Ensures correct pricing calculations</li>
+              <li>Validates business logic independently</li>
+              <li>Enables safe refactoring</li>
+              <li>Documents expected behavior</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Slide 9: API Endpoints -->
+      <div class="slide">
+        <h1>API Endpoints</h1>
+        <p>
+          The service exposes a clear set of RESTful endpoints for managing
+          rentals.
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Endpoint</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>POST</strong></td>
+              <td><code>/api/rentals/pickup</code></td>
+              <td>Register car pickup</td>
+            </tr>
+            <tr>
+              <td><strong>POST</strong></td>
+              <td><code>/api/rentals/{bookingNumber}/return</code></td>
+              <td>Register car return and calculate price</td>
+            </tr>
+            <tr>
+              <td><strong>GET</strong></td>
+              <td><code>/api/rentals</code></td>
+              <td>Get all rentals</td>
+            </tr>
+            <tr>
+              <td><strong>GET</strong></td>
+              <td><code>/api/rentals/active</code></td>
+              <td>Get active rentals only</td>
+            </tr>
+            <tr>
+              <td><strong>GET</strong></td>
+              <td><code>/api/rentals/{bookingNumber}</code></td>
+              <td>Get rental by booking number</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Slide 8: Summary -->
+      <div class="slide">
+        <h1>Summary</h1>
+        <ul>
+          <li>
+            <strong>Clean Architecture</strong>: A well-structured and
+            maintainable codebase.
+          </li>
+          <li>
+            <strong>Extensible Design</strong>: The Strategy Pattern allows for
+            easy addition of new car categories and pricing models.
+          </li>
+          <li>
+            <strong>Complete Implementation</strong>: All core requirements for
+            the rental service have been met.
+          </li>
+          <li>
+            <strong>Modern Tech Stack</strong>: Built using the latest .NET 8
+            features for high performance.
+          </li>
+        </ul>
+        <h2 style="text-align: center; margin-top: 50px">Thank you.</h2>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="slide-counter">
+      <span id="currentSlide">1</span> / <span id="totalSlides">10</span>
+    </div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="prevBtn" onclick="previousSlide()">
+        ← Previous
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script type="module">
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
+
+      document.getElementById("totalSlides").textContent = totalSlides;
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+
+        currentSlide = n;
+
+        if (currentSlide >= totalSlides) {
+          currentSlide = totalSlides - 1;
+        } else if (currentSlide < 0) {
+          currentSlide = 0;
+        }
+
+        slides[currentSlide].classList.add("active");
+        document.getElementById("currentSlide").textContent = currentSlide + 1;
+
+        document.getElementById("prevBtn").disabled = currentSlide === 0;
+        document.getElementById("nextBtn").disabled =
+          currentSlide === totalSlides - 1;
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function previousSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      // Make functions available globally
+      window.nextSlide = nextSlide;
+      window.previousSlide = previousSlide;
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === " ") {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          previousSlide();
+        }
+      });
+
+      // Initialize first slide
+      showSlide(0);
+    </script>
+  </body>
+</html>

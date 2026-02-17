@@ -1,0 +1,1137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Rental System - Interview Presentation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      .presentation-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .slide {
+        background: white;
+        border-radius: 12px;
+        padding: 60px;
+        margin-bottom: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        min-height: 600px;
+        display: none;
+        animation: slideIn 0.5s ease-out;
+      }
+
+      .slide.active {
+        display: block;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        color: #667eea;
+        font-size: 3em;
+        margin-bottom: 20px;
+        border-bottom: 4px solid #667eea;
+        padding-bottom: 20px;
+      }
+
+      h2 {
+        color: #764ba2;
+        font-size: 2.2em;
+        margin-bottom: 25px;
+        margin-top: 30px;
+      }
+
+      h3 {
+        color: #667eea;
+        font-size: 1.6em;
+        margin-bottom: 15px;
+        margin-top: 20px;
+      }
+
+      h4 {
+        color: #555;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+        margin-top: 15px;
+      }
+
+      p,
+      li {
+        line-height: 1.8;
+        font-size: 1.1em;
+        margin-bottom: 12px;
+      }
+
+      .emoji {
+        font-size: 1.3em;
+        margin-right: 10px;
+      }
+
+      ul {
+        margin-left: 30px;
+        margin-bottom: 20px;
+      }
+
+      .checkmark {
+        color: #4caf50;
+        font-weight: bold;
+      }
+
+      .highlight {
+        background: #fff9c4;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      .tech-stack {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+      }
+
+      .tech-card {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 20px;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+      }
+
+      .tech-card h4 {
+        color: #667eea;
+        margin-bottom: 10px;
+      }
+
+      .code-block {
+        background: #2d2d2d;
+        color: #f8f8f2;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 20px 0;
+        font-family: "Courier New", monospace;
+        font-size: 0.95em;
+        line-height: 1.6;
+      }
+
+      .code-block .keyword {
+        color: #ff79c6;
+      }
+      .code-block .string {
+        color: #50fa7b;
+      }
+      .code-block .number {
+        color: #bd93f9;
+      }
+      .code-block .comment {
+        color: #6272a4;
+      }
+
+      .api-endpoint {
+        background: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+      }
+
+      .api-endpoint .method {
+        display: inline-block;
+        background: #2196f3;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 0.9em;
+      }
+
+      .api-endpoint .path {
+        font-family: "Courier New", monospace;
+        color: #1565c0;
+        font-weight: 600;
+      }
+
+      .test-result {
+        background: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 4px;
+      }
+
+      .scenario-box {
+        background: #fff3e0;
+        border: 2px solid #ff9800;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 8px;
+      }
+
+      .calculation {
+        background: #f3e5f5;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: "Courier New", monospace;
+        font-size: 1.05em;
+        margin: 15px 0;
+        border-left: 4px solid #9c27b0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      table th {
+        background: #667eea;
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      table tr:hover {
+        background: #f5f5f5;
+      }
+
+      .navigation {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        gap: 15px;
+        z-index: 1000;
+      }
+
+      .nav-btn {
+        background: white;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1.1em;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        color: #667eea;
+        font-weight: 600;
+      }
+
+      .nav-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        background: #667eea;
+        color: white;
+      }
+
+      .nav-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .slide-counter {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        font-weight: 600;
+        color: #667eea;
+        z-index: 1000;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 20px 0;
+      }
+
+      .metric-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .metric-card h3 {
+        color: white;
+        font-size: 3em;
+        margin-bottom: 10px;
+      }
+
+      .metric-card p {
+        font-size: 1.2em;
+        opacity: 0.9;
+      }
+
+      .title-slide {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 600px;
+      }
+
+      .title-slide h1 {
+        font-size: 4em;
+        border: none;
+        margin-bottom: 30px;
+      }
+
+      .title-slide p {
+        font-size: 1.5em;
+        color: #666;
+        margin-top: 20px;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .feature-item {
+        background: #e8f5e9;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #4caf50;
+      }
+
+      @media print {
+        .navigation,
+        .slide-counter {
+          display: none;
+        }
+        .slide {
+          display: block !important;
+          page-break-after: always;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="presentation-container">
+      <!-- Slide 1: Title -->
+      <div class="slide active title-slide">
+        <h1>🚗 Car Rental System</h1>
+        <h2>Interview Presentation</h2>
+        <p>Comprehensive Solution for Car Rental Management</p>
+        <p style="margin-top: 40px; font-size: 1.2em; color: #999">
+          Avijit Roy<br />
+          February 16, 2026
+        </p>
+      </div>
+
+      <!-- Slide 2: Overview -->
+      <div class="slide">
+        <h1>📋 Project Overview</h1>
+        <h3>Enterprise-Grade Car Rental Management System</h3>
+        <p>
+          Complete implementation of all required use cases with additional
+          production-ready features.
+        </p>
+
+        <div class="grid-2" style="margin-top: 40px">
+          <div class="metric-card">
+            <h3>100%</h3>
+            <p>Requirements Met</p>
+          </div>
+          <div class="metric-card">
+            <h3>12+</h3>
+            <p>Unit Tests</p>
+          </div>
+          <div class="metric-card">
+            <h3>6</h3>
+            <p>REST API Endpoints</p>
+          </div>
+          <div class="metric-card">
+            <h3>3</h3>
+            <p>Pricing Strategies</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Requirements Completion -->
+      <div class="slide">
+        <h1>✅ Requirements Completion</h1>
+
+        <h3>Core Requirements Met</h3>
+        <ul>
+          <li>
+            <span class="checkmark">✓</span>
+            <strong>Car Categories:</strong> Small car, Combi, Truck (extensible
+            design)
+          </li>
+          <li>
+            <span class="checkmark">✓</span>
+            <strong>Booking System:</strong> Unique booking numbers (GUID-based)
+          </li>
+          <li>
+            <span class="checkmark">✓</span>
+            <strong>Car Pickup Registration:</strong> All required fields
+            captured
+          </li>
+          <li>
+            <span class="checkmark">✓</span>
+            <strong>Car Return Registration:</strong> Complete workflow with
+            price calculation
+          </li>
+          <li>
+            <span class="checkmark">✓</span>
+            <strong>Pricing Formulas:</strong> Implemented exactly as specified
+          </li>
+          <li>
+            <span class="checkmark">✓</span>
+            <strong>Test Cases:</strong> Comprehensive unit tests for all
+            pricing logic
+          </li>
+        </ul>
+
+        <h3>Bonus Features Implemented</h3>
+        <div class="feature-grid">
+          <div class="feature-item">Full REST API</div>
+          <div class="feature-item">React Frontend</div>
+          <div class="feature-item">PDF Invoices</div>
+          <div class="feature-item">Database Persistence</div>
+          <div class="feature-item">Structured Logging</div>
+          <div class="feature-item">Exception Handling</div>
+          <div class="feature-item">Data Validation</div>
+          <div class="feature-item">CORS Support</div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Technology Stack -->
+      <div class="slide">
+        <h1>🏗️ Technology Stack</h1>
+
+        <div class="tech-stack">
+          <div class="tech-card">
+            <h4>Backend</h4>
+            <ul>
+              <li>ASP.NET Core 8.0</li>
+              <li>Entity Framework Core</li>
+              <li>SQL Server</li>
+              <li>QuestPDF</li>
+              <li>Serilog</li>
+              <li>AutoMapper</li>
+              <li>xUnit</li>
+            </ul>
+          </div>
+          <div class="tech-card">
+            <h4>Frontend</h4>
+            <ul>
+              <li>React 19.2.4</li>
+              <li>TypeScript</li>
+              <li>Axios</li>
+              <li>CSS3</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Design Patterns Used</h3>
+        <div class="grid-2">
+          <div>
+            <ul>
+              <li>
+                <strong>Repository Pattern</strong> - Data access abstraction
+              </li>
+              <li>
+                <strong>Strategy Pattern</strong> - Category-specific pricing
+              </li>
+              <li><strong>Factory Pattern</strong> - Calculator selection</li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li><strong>Dependency Injection</strong> - Loose coupling</li>
+              <li><strong>DTO Pattern</strong> - Clean API contracts</li>
+              <li>
+                <strong>Middleware Pattern</strong> - Cross-cutting concerns
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Pricing Implementation -->
+      <div class="slide">
+        <h1>💰 Pricing Implementation</h1>
+
+        <h3>Formulas (As Specified)</h3>
+
+        <div class="calculation">
+          <strong>Small Car:</strong><br />
+          Price = baseDayRental × numberOfDays
+        </div>
+
+        <div class="calculation">
+          <strong>Combi:</strong><br />
+          Price = (baseDayRental × numberOfDays × 1.3) + (baseKmPrice ×
+          numberOfKm)
+        </div>
+
+        <div class="calculation">
+          <strong>Truck:</strong><br />
+          Price = (baseDayRental × numberOfDays × 1.5) + (baseKmPrice ×
+          numberOfKm × 1.5)
+        </div>
+
+        <h3>Configuration</h3>
+        <div class="code-block">
+          <span class="string">"PriceCalculation"</span>: {
+          <span class="string">"BaseDayRental"</span>:
+          <span class="number">500</span>,
+          <span class="string">"BaseKmPrice"</span>:
+          <span class="number">5</span> }
+        </div>
+
+        <h3>Strategy Pattern Implementation</h3>
+        <ul>
+          <li><code>SmallCarPriceCalculator</code></li>
+          <li><code>CombiPriceCalculator</code></li>
+          <li><code>TruckPriceCalculator</code></li>
+          <li>
+            <code>PriceCalculatorFactory</code> - Selects appropriate calculator
+          </li>
+        </ul>
+      </div>
+
+      <!-- Slide 6: Use Case 1 - Pickup -->
+      <div class="slide">
+        <h1>📊 Use Case 1: Car Pickup Registration</h1>
+
+        <div class="api-endpoint">
+          <span class="method">POST</span>
+          <span class="path">/api/rentals/pickup</span>
+        </div>
+
+        <h3>Request Body</h3>
+        <div class="code-block">
+          {
+          <span class="string">"registrationNumber"</span>:
+          <span class="string">"ABC123"</span>,
+          <span class="string">"customerSocialSecurityNumber"</span>:
+          <span class="string">"19850615-1234"</span>,
+          <span class="string">"emailAddress"</span>:
+          <span class="string">"customer@example.com"</span>,
+          <span class="string">"category"</span>: <span class="number">0</span>,
+          <span class="string">"pickupDateTime"</span>:
+          <span class="string">"2026-02-16T10:00:00"</span>,
+          <span class="string">"pickupMeterReading"</span>:
+          <span class="number">15000</span> }
+        </div>
+
+        <h3>Business Logic</h3>
+        <ul>
+          <li>
+            Generates unique <span class="highlight">GUID booking number</span>
+          </li>
+          <li>Validates all input fields with DataAnnotations</li>
+          <li>Sets rental status to <strong>"Active"</strong></li>
+          <li>Persists to database via Entity Framework</li>
+          <li>Returns complete rental details</li>
+        </ul>
+      </div>
+
+      <!-- Slide 7: Use Case 2 - Return -->
+      <div class="slide">
+        <h1>📊 Use Case 2: Car Return Registration</h1>
+
+        <div class="api-endpoint">
+          <span class="method">POST</span>
+          <span class="path">/api/rentals/{bookingNumber}/return</span>
+        </div>
+
+        <h3>Request Body</h3>
+        <div class="code-block">
+          {
+          <span class="string">"returnDateTime"</span>:
+          <span class="string">"2026-02-18T14:30:00"</span>,
+          <span class="string">"returnMeterReading"</span>:
+          <span class="number">15350</span> }
+        </div>
+
+        <h3>Business Logic</h3>
+        <ul>
+          <li>Validates booking exists and is <strong>Active</strong></li>
+          <li>Validates return meter reading > pickup reading</li>
+          <li>Calculates rental duration in days</li>
+          <li>Calculates distance traveled (km)</li>
+          <li>
+            Applies appropriate
+            <span class="highlight">pricing formula</span> based on category
+          </li>
+          <li>Updates status to <strong>"Completed"</strong></li>
+          <li>Returns rental details with calculated price</li>
+        </ul>
+      </div>
+
+      <!-- Slide 8: Demo Scenario -->
+      <div class="slide">
+        <h1>🎯 Demo Scenario: Complete Workflow</h1>
+
+        <div class="scenario-box">
+          <h3>Scenario 1: Small Car Rental</h3>
+
+          <h4>1. Customer Picks Up Car</h4>
+          <ul>
+            <li>Registration: ABC123</li>
+            <li>Category: Small Car</li>
+            <li>Pickup Date: Feb 16, 2026, 10:00 AM</li>
+            <li>Meter Reading: 10,000 km</li>
+          </ul>
+
+          <h4>2. Customer Returns Car</h4>
+          <ul>
+            <li>Return Date: Feb 19, 2026, 2:00 PM</li>
+            <li>Meter Reading: 10,450 km</li>
+            <li>Distance Traveled: <strong>450 km</strong></li>
+            <li>Rental Duration: <strong>3 days</strong></li>
+          </ul>
+
+          <h4>3. Price Calculation</h4>
+          <div class="calculation">
+            Price = 500 × 3 =
+            <strong style="font-size: 1.3em; color: #4caf50">1,500 SEK</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: More Demo Scenarios -->
+      <div class="slide">
+        <h1>🎯 More Demo Scenarios</h1>
+
+        <div class="scenario-box">
+          <h3>Scenario 2: Combi (5 days, 750 km)</h3>
+          <div class="calculation">
+            Price = (500 × 5 × 1.3) + (5 × 750)<br />
+            = 3,250 + 3,750 = <strong style="color: #4caf50">7,000 SEK</strong>
+          </div>
+        </div>
+
+        <div class="scenario-box">
+          <h3>Scenario 3: Truck (7 days, 1,200 km)</h3>
+          <div class="calculation">
+            Price = (500 × 7 × 1.5) + (5 × 1,200 × 1.5)<br />
+            = 5,250 + 9,000 = <strong style="color: #4caf50">14,250 SEK</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Test Cases -->
+      <div class="slide">
+        <h1>🧪 Test Cases</h1>
+
+        <h3>Unit Tests Implemented</h3>
+
+        <div class="test-result">
+          <strong>SmallCarPriceCalculatorTests</strong>
+          <ul>
+            <li>✓ Calculate_ShouldReturnCorrectPrice_ForSmallCar</li>
+            <li>✓ Calculate_ShouldHandleZeroDays</li>
+            <li>✓ Calculate_ShouldHandleDecimalPrecision</li>
+          </ul>
+        </div>
+
+        <div class="test-result">
+          <strong>CombiPriceCalculatorTests</strong>
+          <ul>
+            <li>✓ Calculate_ShouldReturnCorrectPrice_ForCombi</li>
+            <li>✓ Calculate_ShouldHandleHighMileage</li>
+            <li>✓ Calculate_ShouldRoundCorrectly</li>
+          </ul>
+        </div>
+
+        <div class="test-result">
+          <strong>TruckPriceCalculatorTests</strong>
+          <ul>
+            <li>✓ Calculate_ShouldReturnCorrectPrice_ForTruck</li>
+            <li>✓ Calculate_ShouldHandleLongRentals</li>
+            <li>✓ Calculate_ShouldValidateInputs</li>
+          </ul>
+        </div>
+
+        <div class="test-result">
+          <strong>PriceCalculatorFactoryTests</strong>
+          <ul>
+            <li>
+              ✓ GetCalculator_ShouldReturnCorrectCalculatorForEachCategory
+            </li>
+            <li>✓ GetCalculator_ShouldThrowForInvalidCategory</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Slide 11: API Endpoints -->
+      <div class="slide">
+        <h1>🚀 Complete API</h1>
+
+        <h3>Rentals API</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Endpoint</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>POST</strong></td>
+              <td>/api/rentals/pickup</td>
+              <td>Register car pickup</td>
+            </tr>
+            <tr>
+              <td><strong>POST</strong></td>
+              <td>/api/rentals/{bookingNumber}/return</td>
+              <td>Register car return</td>
+            </tr>
+            <tr>
+              <td><strong>GET</strong></td>
+              <td>/api/rentals/{bookingNumber}</td>
+              <td>Get rental by booking number</td>
+            </tr>
+            <tr>
+              <td><strong>GET</strong></td>
+              <td>/api/rentals</td>
+              <td>Get all rentals</td>
+            </tr>
+            <tr>
+              <td><strong>GET</strong></td>
+              <td>/api/rentals/active</td>
+              <td>Get active rentals</td>
+            </tr>
+            <tr>
+              <td><strong>GET</strong></td>
+              <td>/api/invoice/{bookingNumber}</td>
+              <td>Download PDF invoice</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Slide 12: Design Decisions -->
+      <div class="slide">
+        <h1>🔍 Key Design Decisions</h1>
+
+        <h3>1. Strategy Pattern for Pricing</h3>
+        <ul>
+          <li>
+            <strong>Why?</strong> Open/Closed Principle - Add new categories
+            without modifying existing code
+          </li>
+          <li>
+            <strong>Benefit:</strong> Each calculator has single responsibility
+            and is independently testable
+          </li>
+          <li><strong>Future-proof:</strong> Easy to add new car categories</li>
+        </ul>
+
+        <h3>2. GUID for Booking Numbers</h3>
+        <ul>
+          <li><strong>Security:</strong> Prevents enumeration attacks</li>
+          <li>
+            <strong>Distributed Systems:</strong> Can generate unique IDs
+            without central coordination
+          </li>
+          <li>
+            <strong>Scalability:</strong> Works across multiple
+            instances/databases
+          </li>
+        </ul>
+
+        <h3>3. Repository Pattern</h3>
+        <ul>
+          <li>
+            <strong>Abstraction:</strong> Decouples business logic from data
+            access
+          </li>
+          <li><strong>Testability:</strong> Easy to mock for unit testing</li>
+          <li>
+            <strong>Flexibility:</strong> Can swap data sources without changing
+            business logic
+          </li>
+        </ul>
+      </div>
+
+      <!-- Slide 13: Assumptions -->
+      <div class="slide">
+        <h1>📝 Assumptions Made</h1>
+
+        <h3>Business Logic</h3>
+        <ul>
+          <li>
+            <strong>Day Calculation:</strong> Full 24-hour periods (ceiling
+            division)
+          </li>
+          <li>
+            <strong>Distance Calculation:</strong> Simple subtraction (return -
+            pickup)
+          </li>
+          <li>
+            <strong>Email Required:</strong> Added for invoice delivery
+            (practical business need)
+          </li>
+          <li>
+            <strong>Single Active Rental:</strong> One car can only have one
+            active rental at a time
+          </li>
+          <li>
+            <strong>Price Rounding:</strong> 2 decimal places (standard currency
+            precision)
+          </li>
+        </ul>
+
+        <h3>Technical Architecture</h3>
+        <ul>
+          <li>
+            <strong>Controller-Based API:</strong> Better organization than
+            minimal API
+          </li>
+          <li>
+            <strong>Database Persistence:</strong> SQL Server for
+            production-ready storage
+          </li>
+          <li>
+            <strong>Global Exception Handling:</strong> Consistent error
+            responses
+          </li>
+          <li>
+            <strong>Validation at API Layer:</strong> DataAnnotations for
+            request validation
+          </li>
+        </ul>
+      </div>
+
+      <!-- Slide 14: Architecture -->
+      <div class="slide">
+        <h1>🏛️ Project Structure</h1>
+
+        <div class="code-block" style="font-size: 0.85em">
+          car-rental-app/ ├── backend-rental/ │ ├── RentalService.API/ │ │ ├──
+          Controllers/ │ │ │ ├── RentalsController.cs
+          <span class="comment"># Main use cases</span> │ │ │ └──
+          InvoiceController.cs │ │ ├── Services/ │ │ │ ├── RentalService.cs
+          <span class="comment"># Business logic</span> │ │ │ └──
+          InvoiceService.cs │ │ ├── Pricing/ │ │ │ ├──
+          SmallCarPriceCalculator.cs │ │ │ ├── CombiPriceCalculator.cs │ │ │ ├──
+          TruckPriceCalculator.cs │ │ │ └── PriceCalculatorFactory.cs │ │ ├──
+          Models/ │ │ │ ├── Rental.cs │ │ │ ├── CarCategory.cs │ │ │ └── DTOs/ │
+          │ └── Data/ │ │ └── RentalDbContext.cs │ └── RentalService.Tests/
+          <span class="comment"># Unit tests</span> └── frontend/ └── src/ ├──
+          components/ │ ├── PickupForm.tsx
+          <span class="comment"># Use case 1 UI</span> │ ├── ReturnForm.tsx
+          <span class="comment"># Use case 2 UI</span> │ └── RentalList.tsx └──
+          services/ └── rentalService.ts
+          <span class="comment"># API client</span>
+        </div>
+      </div>
+
+      <!-- Slide 15: Data Validation -->
+      <div class="slide">
+        <h1>🔒 Data Validation</h1>
+
+        <h3>Pickup Request Validation</h3>
+        <ul>
+          <li>
+            <strong>Registration Number:</strong> Required, max 20 characters
+          </li>
+          <li><strong>SSN:</strong> Required, max 20 characters</li>
+          <li><strong>Email:</strong> Required, valid email format</li>
+          <li><strong>Category:</strong> Must be valid enum (0, 1, or 2)</li>
+          <li><strong>Pickup Date:</strong> Required, valid datetime</li>
+          <li><strong>Meter Reading:</strong> Required, must be positive</li>
+        </ul>
+
+        <h3>Return Request Validation</h3>
+        <ul>
+          <li>
+            <strong>Booking Number:</strong> Must exist, rental must be Active
+          </li>
+          <li>
+            <strong>Return Date:</strong> Required, must be after pickup date
+          </li>
+          <li>
+            <strong>Meter Reading:</strong> Required, must be > pickup reading
+          </li>
+        </ul>
+
+        <h3>Error Handling</h3>
+        <ul>
+          <li>Global exception middleware catches all errors</li>
+          <li>Returns appropriate HTTP status codes (400, 404, 500)</li>
+          <li>Structured error responses with clear messages</li>
+        </ul>
+      </div>
+
+      <!-- Slide 16: Future Enhancements -->
+      <div class="slide">
+        <h1>📈 Future Enhancements</h1>
+
+        <div class="grid-2">
+          <div>
+            <h3>Features</h3>
+            <ul>
+              <li>Authentication & Authorization (JWT)</li>
+              <li>Payment Integration (Stripe/PayPal)</li>
+              <li>Email Notifications</li>
+              <li>Reporting Dashboard</li>
+              <li>Reservation System</li>
+              <li>Vehicle Availability Tracking</li>
+              <li>Mobile App (iOS/Android)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Scalability</h3>
+            <ul>
+              <li>API Versioning</li>
+              <li>Caching Layer (Redis)</li>
+              <li>Message Queue (RabbitMQ)</li>
+              <li>Microservices Architecture</li>
+              <li>Load Balancing</li>
+              <li>Container Orchestration (Kubernetes)</li>
+              <li>CDN for Frontend Assets</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: Key Learnings -->
+      <div class="slide">
+        <h1>🎓 What I Learned</h1>
+
+        <ul style="font-size: 1.15em">
+          <li>
+            <strong>Strategy Pattern Mastery:</strong> Elegant solution for
+            category-specific behavior
+          </li>
+          <li>
+            <strong>Financial Calculations:</strong> Handling decimal precision
+            in pricing logic
+          </li>
+          <li>
+            <strong>RESTful API Design:</strong> Proper HTTP methods, status
+            codes, and resource naming
+          </li>
+          <li>
+            <strong>Test-Driven Development:</strong> Importance of
+            comprehensive test coverage
+          </li>
+          <li>
+            <strong>Full-Stack Integration:</strong> CORS, API contracts, type
+            safety with TypeScript
+          </li>
+          <li>
+            <strong>PDF Generation:</strong> Document composition with QuestPDF
+            library
+          </li>
+          <li>
+            <strong>Enterprise Patterns:</strong> Middleware, repositories,
+            dependency injection
+          </li>
+          <li>
+            <strong>Clean Architecture:</strong> Separation of concerns, SOLID
+            principles
+          </li>
+        </ul>
+      </div>
+
+      <!-- Slide 18: Summary -->
+      <div class="slide">
+        <h1>📝 Summary</h1>
+
+        <h3>What Was Delivered</h3>
+        <div class="feature-grid">
+          <div class="feature-item">
+            ✅ Complete implementation of both use cases
+          </div>
+          <div class="feature-item">✅ Accurate pricing for all categories</div>
+          <div class="feature-item">✅ Comprehensive unit tests (12+)</div>
+          <div class="feature-item">✅ Full REST API (6 endpoints)</div>
+          <div class="feature-item">✅ React TypeScript frontend</div>
+          <div class="feature-item">✅ PDF invoice generation</div>
+          <div class="feature-item">✅ Database persistence</div>
+          <div class="feature-item">✅ Structured logging</div>
+          <div class="feature-item">✅ Exception handling</div>
+          <div class="feature-item">✅ Data validation</div>
+          <div class="feature-item">✅ Clean, maintainable code</div>
+          <div class="feature-item">✅ Production-ready architecture</div>
+        </div>
+
+        <h3 style="margin-top: 40px; text-align: center; color: #667eea">
+          Beyond Requirements: Enterprise-Grade Solution
+        </h3>
+      </div>
+
+      <!-- Slide 19: Live Demo -->
+      <div class="slide">
+        <h1>💻 Live Demo</h1>
+
+        <h3>Demo Checklist</h3>
+        <div class="scenario-box">
+          <h4>1. Start Backend API</h4>
+          <div class="code-block">
+            cd backend-rental/RentalService.API dotnet run
+            <span class="comment"># API: http://localhost:5145</span>
+            <span class="comment"
+              ># Swagger: http://localhost:5145/swagger</span
+            >
+          </div>
+
+          <h4>2. Start Frontend</h4>
+          <div class="code-block">
+            cd frontend npm start
+            <span class="comment"># App: http://localhost:3000</span>
+          </div>
+
+          <h4>3. Run Tests</h4>
+          <div class="code-block">
+            cd backend-rental/RentalService.Tests dotnet test
+          </div>
+
+          <h4>4. Demo Flow</h4>
+          <ul>
+            <li>Register car pickup → Get booking number</li>
+            <li>View active rentals → See our new rental</li>
+            <li>Register return → See price calculation</li>
+            <li>Download PDF invoice → Show professional invoice</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Slide 20: Q&A -->
+      <div class="slide title-slide">
+        <h1>🙋 Questions?</h1>
+        <h3>Topics I Can Discuss</h3>
+        <ul
+          style="
+            text-align: left;
+            max-width: 800px;
+            margin: 40px auto;
+            font-size: 1.2em;
+          "
+        >
+          <li>Architectural decisions and trade-offs</li>
+          <li>Design patterns and their applicability</li>
+          <li>Testing strategy and coverage</li>
+          <li>Scalability and performance considerations</li>
+          <li>Business logic edge cases</li>
+          <li>Alternative approaches considered</li>
+          <li>Future enhancements and roadmap</li>
+        </ul>
+        <p
+          style="
+            margin-top: 60px;
+            font-size: 1.3em;
+            color: #667eea;
+            font-weight: 600;
+          "
+        >
+          Thank you for your time!
+        </p>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="slide-counter">
+      <span id="currentSlide">1</span> / <span id="totalSlides">20</span>
+    </div>
+
+    <div class="navigation">
+      <button class="nav-btn" id="prevBtn" onclick="previousSlide()">
+        ← Previous
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
+
+      document.getElementById("totalSlides").textContent = totalSlides;
+
+      function showSlide(n) {
+        slides.forEach((slide) => slide.classList.remove("active"));
+
+        if (n >= totalSlides) {
+          currentSlide = totalSlides - 1;
+        } else if (n < 0) {
+          currentSlide = 0;
+        } else {
+          currentSlide = n;
+        }
+
+        slides[currentSlide].classList.add("active");
+        document.getElementById("currentSlide").textContent = currentSlide + 1;
+
+        // Update button states
+        document.getElementById("prevBtn").disabled = currentSlide === 0;
+        document.getElementById("nextBtn").disabled =
+          currentSlide === totalSlides - 1;
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function previousSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight" || e.key === " ") {
+          e.preventDefault();
+          nextSlide();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          previousSlide();
+        }
+      });
+
+      // Initialize
+      showSlide(0);
+    </script>
+  </body>
+</html>

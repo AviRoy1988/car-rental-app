@@ -1,0 +1,85 @@
+2026-02-16 00:10:39.851 +01:00 [INF] Now listening on: http://localhost:5145
+2026-02-16 00:10:39.884 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 00:10:39.884 +01:00 [INF] Hosting environment: Development
+2026-02-16 00:10:39.884 +01:00 [INF] Content root path: /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API
+2026-02-16 00:18:50.881 +01:00 [INF] HTTP OPTIONS /api/rentals/pickup responded 405 in 4.2573 ms
+2026-02-16 00:20:27.098 +01:00 [INF] Application is shutting down...
+2026-02-16 00:20:30.775 +01:00 [INF] Now listening on: http://localhost:5145
+2026-02-16 00:20:30.810 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 00:20:30.810 +01:00 [INF] Hosting environment: Development
+2026-02-16 00:20:30.810 +01:00 [INF] Content root path: /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API
+2026-02-16 00:20:44.667 +01:00 [INF] HTTP OPTIONS /api/rentals/pickup responded 204 in 1.2297 ms
+2026-02-16 00:20:44.924 +01:00 [INF] HTTP POST /api/rentals/pickup responded 400 in 248.2478 ms
+2026-02-16 00:21:56.545 +01:00 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[Status] = 0
+2026-02-16 00:21:56.545 +01:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[Status] = 0
+2026-02-16 00:21:56.564 +01:00 [INF] HTTP GET /api/rentals/active responded 200 in 267.1899 ms
+2026-02-16 00:21:56.564 +01:00 [INF] HTTP GET /api/rentals/active responded 200 in 267.1964 ms
+2026-02-16 00:28:42.301 +01:00 [INF] HTTP OPTIONS /api/rentals/pickup responded 204 in 0.1573 ms
+2026-02-16 00:28:42.429 +01:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2), @p4='?' (Size = 20), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (Size = 20), @p9='?' (DbType = DateTime2), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Rentals] ([BookingNumber], [CalculatedPrice], [Category], [CreatedAt], [CustomerSocialSecurityNumber], [EmailAddress], [PickupDateTime], [PickupMeterReading], [RegistrationNumber], [ReturnDateTime], [ReturnMeterReading], [Status], [UpdatedAt])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12);
+2026-02-16 00:28:42.447 +01:00 [INF] HTTP POST /api/rentals/pickup responded 201 in 143.4683 ms
+2026-02-16 00:28:51.777 +01:00 [INF] Executed DbCommand (8ms) [Parameters=[@__bookingGuid_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[BookingNumber] = @__bookingGuid_0
+2026-02-16 00:28:51.783 +01:00 [INF] HTTP GET /api/rentals/28c7b5d6-6467-42af-a475-ddabf3d868dd responded 200 in 28.9212 ms
+2026-02-16 00:29:06.788 +01:00 [INF] HTTP OPTIONS /api/rentals/28c7b5d6-6467-42af-a475-ddabf3d868dd/return responded 204 in 0.1569 ms
+2026-02-16 00:29:06.803 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__bookingGuid_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[BookingNumber] = @__bookingGuid_0
+2026-02-16 00:29:06.819 +01:00 [INF] Executed DbCommand (11ms) [Parameters=[@p13='?' (DbType = Int32), @p0='?' (DbType = Guid), @p1='?' (Precision = 18) (Scale = 2) (DbType = Decimal), @p2='?' (DbType = Int32), @p3='?' (DbType = DateTime2), @p4='?' (Size = 20), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Int32), @p8='?' (Size = 20), @p9='?' (DbType = DateTime2), @p10='?' (DbType = Int32), @p11='?' (DbType = Int32), @p12='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Rentals] SET [BookingNumber] = @p0, [CalculatedPrice] = @p1, [Category] = @p2, [CreatedAt] = @p3, [CustomerSocialSecurityNumber] = @p4, [EmailAddress] = @p5, [PickupDateTime] = @p6, [PickupMeterReading] = @p7, [RegistrationNumber] = @p8, [ReturnDateTime] = @p9, [ReturnMeterReading] = @p10, [Status] = @p11, [UpdatedAt] = @p12
+OUTPUT 1
+WHERE [Id] = @p13;
+2026-02-16 00:29:06.822 +01:00 [INF] HTTP POST /api/rentals/28c7b5d6-6467-42af-a475-ddabf3d868dd/return responded 200 in 31.2428 ms
+2026-02-16 00:29:12.544 +01:00 [INF] Executed DbCommand (3ms) [Parameters=[@__bookingGuid_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[BookingNumber] = @__bookingGuid_0
+2026-02-16 00:29:12.547 +01:00 [INF] HTTP GET /api/rentals/28c7b5d6-6467-42af-a475-ddabf3d868dd responded 200 in 8.2692 ms
+2026-02-16 00:29:15.253 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[Status] = 0
+2026-02-16 00:29:15.254 +01:00 [INF] HTTP GET /api/rentals/active responded 200 in 8.6530 ms
+2026-02-16 00:29:15.275 +01:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[Status] = 0
+2026-02-16 00:29:15.276 +01:00 [INF] HTTP GET /api/rentals/active responded 200 in 30.5964 ms
+2026-02-16 00:29:17.337 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[Status] = 0
+2026-02-16 00:29:17.338 +01:00 [INF] HTTP GET /api/rentals/active responded 200 in 8.5428 ms
+2026-02-16 00:29:18.415 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+2026-02-16 00:29:18.415 +01:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+2026-02-16 00:29:18.416 +01:00 [INF] HTTP GET /api/rentals responded 200 in 18.4596 ms
+2026-02-16 00:29:18.416 +01:00 [INF] HTTP GET /api/rentals responded 200 in 18.4676 ms
+2026-02-16 00:29:24.104 +01:00 [INF] Executed DbCommand (4ms) [Parameters=[@__bookingGuid_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Id], [r].[BookingNumber], [r].[CalculatedPrice], [r].[Category], [r].[CreatedAt], [r].[CustomerSocialSecurityNumber], [r].[EmailAddress], [r].[PickupDateTime], [r].[PickupMeterReading], [r].[RegistrationNumber], [r].[ReturnDateTime], [r].[ReturnMeterReading], [r].[Status], [r].[UpdatedAt]
+FROM [Rentals] AS [r]
+WHERE [r].[BookingNumber] = @__bookingGuid_0
+2026-02-16 00:29:24.246 +01:00 [INF] HTTP GET /api/invoice/80b5b824-03ee-4874-9172-8b6902507ed4 responded 200 in 172.9003 ms
+2026-02-16 00:42:52.764 +01:00 [INF] HTTP GET / responded 404 in 0.1250 ms
+2026-02-16 00:42:58.687 +01:00 [INF] HTTP GET /swagger/index.html responded 200 in 31.5407 ms
+2026-02-16 00:42:58.779 +01:00 [INF] HTTP GET /swagger/v1/swagger.json responded 200 in 39.4701 ms
+2026-02-16 00:43:27.337 +01:00 [INF] HTTP POST /api/Rentals/pickup responded 400 in 7.5983 ms
+2026-02-16 00:43:51.416 +01:00 [INF] HTTP POST /api/Rentals/pickup responded 400 in 1.2482 ms

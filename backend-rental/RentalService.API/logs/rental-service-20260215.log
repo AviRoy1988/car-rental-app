@@ -1,0 +1,101 @@
+2026-02-15 23:03:23.767 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:03:23.880 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
+2026-02-15 23:04:14.319 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:04:14.466 +01:00 [INF] Now listening on: http://localhost:5145
+2026-02-15 23:04:14.468 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-15 23:04:14.468 +01:00 [INF] Hosting environment: Development
+2026-02-15 23:04:14.468 +01:00 [INF] Content root path: /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API
+2026-02-15 23:04:24.054 +01:00 [INF] Application is shutting down...
+2026-02-15 23:04:31.893 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:04:31.981 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
+2026-02-15 23:05:59.293 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:05:59.384 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
+2026-02-15 23:07:07.422 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:07:07.521 +01:00 [INF] Now listening on: http://localhost:5145
+2026-02-15 23:07:07.522 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-15 23:07:07.523 +01:00 [INF] Hosting environment: Development
+2026-02-15 23:07:07.523 +01:00 [INF] Content root path: /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API
+2026-02-15 23:34:52.655 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:34:52.787 +01:00 [INF] Now listening on: http://localhost:5145
+2026-02-15 23:34:52.788 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-15 23:34:52.788 +01:00 [INF] Hosting environment: Development
+2026-02-15 23:34:52.789 +01:00 [INF] Content root path: /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API
+2026-02-15 23:35:35.286 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:35:35.388 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
+2026-02-15 23:36:22.033 +01:00 [INF] Starting Rental Service API
+2026-02-15 23:36:22.135 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
+2026-02-15 23:38:07.153 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
+2026-02-15 23:38:21.570 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
+2026-02-15 23:38:33.220 +01:00 [FTL] Application terminated unexpectedly
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in /Users/avijitroy/Documents/Test/car-rental-app/backend-rental/RentalService.API/Program.cs:line 65
